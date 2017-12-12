@@ -1,10 +1,14 @@
 window.addEventListener("load", function() {
     console.log("All resources finished loading!");
+    // console.log (document.getElementById('insert'))
+
 
             var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
          // var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/featured';
           //var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/esl_hearthstone'
+
+
 
 
 
@@ -14,6 +18,11 @@ window.addEventListener("load", function() {
       var  streamIDChannel=streamChannel[i]
 
         trequest(streamIDChannel)
+
+
+
+
+
 
     }
 
@@ -37,32 +46,13 @@ window.addEventListener("load", function() {
 
     function trequest(streamIDChannel) {
         var request = new XMLHttpRequest();
-
         var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/'+streamIDChannel
-
-
         request.open('GET', urlsrc, true);
-
         request.onload = function () {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var data = JSON.parse(this.response);
-                //var data = JSON.parse(request.responseText);
 
-                //console.log(data)
-
-
-                // true from  urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/featured';
-
-                //var all=data.featured[0].stream.channel
-                // var channelName= data.featured[0].stream.channel.display_name
-                // var channelLogo=data.featured[0].stream.channel.logo
-                // var channelStatus=data.featured[0].stream.channel.status
-                // var channelUrl=data.featured[0].stream.channel.url
-                // var channelTitle=data.featured[0].title
-                // var channelText=data.featured[0].text
-
-                //var all=data.featured[0].stream.channel
                 if (data.stream !== null) {
                     var channelName = data.stream.channel.name;
                     var channelLogo = data.stream.channel.logo;
@@ -74,9 +64,34 @@ window.addEventListener("load", function() {
                     console.log(channelLogo);
                     console.log(channelStatus);
                     console.log(channelUrl);
+
+
+
+
+                    insertblock();
+                    function insertblock(){
+                        var d1 = document.getElementById("insert");
+                        //console.log(d1);
+                       // var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p></p><p>'+channelUrl+'</p></div></div></div>'
+                         var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
+
+                      //  console.log(innahtml);
+                        d1.insertAdjacentHTML('beforeend', innahtml)
+
+                    }
+
+
+
+
+
+
+
                 }
                 else
                     {console.log(streamIDChannel+' channel is offline' +' go to url '+'https://twitch.tv/'+streamIDChannel)};
+
+
+
 
 
 
