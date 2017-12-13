@@ -3,7 +3,7 @@ window.addEventListener("load", function() {
     // console.log (document.getElementById('insert'))
 
 
-            var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
+            var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"]
 
          // var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/featured';
           //var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/esl_hearthstone'
@@ -73,7 +73,9 @@ window.addEventListener("load", function() {
                         var d1 = document.getElementById("insert");
                         //console.log(d1);
                        // var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p></p><p>'+channelUrl+'</p></div></div></div>'
-                         var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
+                       //  var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
+
+                        var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="flex-container"><div class="column"><img src='+channelLogo+'></div><div class="column bg-alt"><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
 
                       //  console.log(innahtml);
                         d1.insertAdjacentHTML('beforeend', innahtml)

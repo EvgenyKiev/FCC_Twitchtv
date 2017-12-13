@@ -1,4 +1,15 @@
 /* Space out content a bit */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -82,24 +93,67 @@ body {
 }
 
 
+.flex-container{
+
+  width: 100%;
+
+  min-height: 100px;
+
+  margin: 0 auto;
+
+  display: -webkit-flex; /* Safari */
+
+  display: flex; /* Standard syntax */
+
+}
+
+.flex-container .column{
+
+  padding: 1%;
+
+  background: #dbdfe5;
+
+  -webkit-flex: 1; /* Safari */
+
+  -ms-flex: 1; /* IE 10 */
+
+  flex: 1; /* Standard syntax */
+
+}
+
+.flex-container .column.bg-alt{
+
+  background: #b4bac0;
+
+}
+
+
+
+
+
 #insertchannel {
+  border: 1px solid red !important;
+  box-sizing: border-box;
 
   text-align: left;
-  padding-bottom: 5%;
+  padding: 5%;
 
 }
 
 .block {
-  float: left;
-  position: relative;
-
-
-
-
+  /*width:100px;*/
+  /*height:100px;*/
+  /*display:inline-block;*/
+  border:1px solid red;
+  margin-right:10px;
+  /*float:left;*/
 }
 
+
+
+
 img {
-  position: absolute;
+  /*position: absolute;*/
   width: 70px;
 
   margin: 5%;
@@ -112,5 +166,7 @@ img {
 
 p {
 
-  padding-left: 25%;
+  /*padding-left: 25%;*/
 }
+
+
