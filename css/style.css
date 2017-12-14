@@ -1,14 +1,14 @@
 /* Space out content a bit */
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
+/*html {*/
+  /*-webkit-box-sizing: border-box;*/
+  /*-moz-box-sizing: border-box;*/
+  /*box-sizing: border-box;*/
+/*}*/
+/**, *:before, *:after {*/
+  /*-webkit-box-sizing: inherit;*/
+  /*-moz-box-sizing: inherit;*/
+  /*box-sizing: inherit;*/
+/*}*/
 
 body {
   padding-top: 1.5rem;
@@ -65,7 +65,9 @@ body {
 
 /* Supporting marketing content */
 .marketing {
-  margin: 3rem 0;
+  margin: 1rem 0;
+  /*width: 100%;*/
+  /*margin:auto;*/
 }
 .marketing p + h4 {
   margin-top: 1.5rem;
@@ -95,47 +97,72 @@ body {
 
 .flex-container{
 
-  width: 100%;
-
+  /*width: 100%;*/
   min-height: 100px;
-
   margin: 0 auto;
-
   display: -webkit-flex; /* Safari */
-
   display: flex; /* Standard syntax */
+  flex-wrap: nowrap;
 
 }
 
 .flex-container .column{
 
   padding: 1%;
-
   background: #dbdfe5;
-
   -webkit-flex: 1; /* Safari */
-
   -ms-flex: 1; /* IE 10 */
-
   flex: 1; /* Standard syntax */
+  /*height: 100%;*/
+  flex-shrink: 0;
+  /*border: 1px solid green !important;*/
+  flex: 0 0 80%;
+
 
 }
 
-.flex-container .column.bg-alt{
 
-  background: #b4bac0;
+.flex-container .column1{
+
+  padding: 1%;
+  background: #dbdfe5;
+  -webkit-flex: 1; /* Safari */
+  -ms-flex: 1; /* IE 10 */
+  flex: 1; /* Standard syntax */
+  /*height: 100%;*/
+  flex-shrink: 0;
+  /*border: 1px solid green !important;*/
+  flex: 0 0 20%;
+
 
 }
+
+
+.flex-container .column .bg-alt{
+
+
+
+  padding: 1%;
+  background: #dbdfe5;
+  flex: 1;
+  /*border: 1px solid green !important;*/
+
+
+  /*width: 70%;*/
+}
+
+
 
 
 
 
 
 #insertchannel {
-  border: 1px solid red !important;
-  box-sizing: border-box;
+  /*border: 1px solid red !important;*/
+  /*box-sizing: border-box;*/
 
   text-align: left;
+  vertical-align: middle;
   padding: 5%;
 
 }
@@ -144,7 +171,7 @@ body {
   /*width:100px;*/
   /*height:100px;*/
   /*display:inline-block;*/
-  border:1px solid red;
+  /*border:1px solid red;*/
   margin-right:10px;
   /*float:left;*/
 }
@@ -154,9 +181,10 @@ body {
 
 img {
   /*position: absolute;*/
-  width: 70px;
+  width: 100px;
+  margin: auto;
 
-  margin: 5%;
+  /*margin: 5%;*/
   /*top: 1px;*/
   /*left: 1px;*/
 

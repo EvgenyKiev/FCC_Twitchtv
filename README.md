@@ -35,3 +35,6 @@ __
 
 
 https://wind-bow.glitch.me/twitch-api/streams/Fortnite
+
+
+https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-70x70.png
