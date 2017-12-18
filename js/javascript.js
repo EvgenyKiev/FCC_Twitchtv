@@ -9,22 +9,49 @@ window.addEventListener("load", function() {
           //var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/esl_hearthstone'
 
 
-
-
-
     //
     for (var i = 0; i < streamChannel.length; i++) {
 
-      var  streamIDChannel=streamChannel[i]
+      var  streamIDChannel=streamChannel[i];
 
         trequest(streamIDChannel)
 
+    }
+
+    // var el = document.getElementById("temp");
+    // el.addEventListener("click", modifyT, false);
+
+
+    var all_el = document.getElementById("allChannels");
+    var actve_el = document.getElementById("activeChannels");
+    var noactve_el = document.getElementById("noactiveChannels");
 
 
 
+    all_el.addEventListener("click",allChannels,false);
+    actve_el.addEventListener("click",activeChannels,false);
+    noactve_el.addEventListener("click",noactiveChannels,false);
 
+
+    function allChannels() {
+                console.log ('all_')
 
     }
+
+    function activeChannels() {
+
+        console.log ('all_active')
+
+    }
+
+    function noactiveChannels() {
+
+        console.log ('no_active')
+
+    }
+
+
+
 
 
     function trequest(streamIDChannel) {
@@ -36,11 +63,22 @@ window.addEventListener("load", function() {
                 // Success!
                 var data = JSON.parse(this.response);
 
+                var channelName = streamIDChannel;
+                var channelLogo = 'offline';
+                var channelStatus ='offline';
+                var channelUrl = 'https://www.twitch.tv/'+streamIDChannel;
+
+
                 if (data.stream !== null) {
-                    var channelName = data.stream.channel.name;
-                    var channelLogo = data.stream.channel.logo;
-                    var channelStatus = data.stream.channel.status;
-                    var channelUrl = data.stream.channel.url;
+
+                    channelStatus = data.stream.channel.status;
+                   channelName = data.stream.channel.name;
+                    channelLogo = data.stream.channel.logo;
+                     channelUrl = data.stream.channel.url;
+
+
+
+                }
 
                     //console.log(all)
                     console.log(channelName);
@@ -48,40 +86,26 @@ window.addEventListener("load", function() {
                     console.log(channelStatus);
                     console.log(channelUrl);
 
-
-
-
                     insertblock();
+
                     function insertblock(){
                         var d1 = document.getElementById("insert");
-                        //console.log(d1);
-                       // var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p></p><p>'+channelUrl+'</p></div></div></div>'
-                       //  var innahtml ='<div class="row marketing"><div class="col-md-10" id="insertchannel"><h4>'+channelName+'</h4><div class="block"><img src='+channelLogo+'><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
 
-                        var innahtml ='<div class="row marketing"><div class="col-md-12" id="insertchannel"><h4>'+channelName+'</h4><div class="flex-container"><div class="column"><img src='+channelLogo+'></div><div class="column bg-alt"><p>'+channelStatus+'</p><p>'+channelUrl+'</p></div></div></div>'
+                        var innahtml= '<div class="row marketing"><div class="col-md-12" id="insertchannel"><div class="flex-container"><div class="column1"><img src='+channelLogo+'></div><div class="column bg-alt"><h5> <a href='+channelUrl+'>'+channelName+'</a></h5><p>'+channelStatus+'</p></div></div></div></div>'
 
-                      //  console.log(innahtml);
+                        // console.log(innahtml);
                         d1.insertAdjacentHTML('beforeend', innahtml)
-
                     }
 
 
+                // else
+                //     {console.log(streamIDChannel+' channel is offline' +' go to url '+'https://twitch.tv/'+streamIDChannel)};
 
+            //end If  this.status >= 200 && this.status < 400
+            }
 
-
-
-
-                }
-                else
-                    {console.log(streamIDChannel+' channel is offline' +' go to url '+'https://twitch.tv/'+streamIDChannel)};
-
-
-
-
-
-
-            } else {
-                console.log('We reached our target server, but it returned an error')
+            else {
+                console.log('We reached our target server, but it returned an error');
 
             }
         };

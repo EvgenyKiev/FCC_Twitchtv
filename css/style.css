@@ -112,11 +112,11 @@ body {
   background: #dbdfe5;
   -webkit-flex: 1; /* Safari */
   -ms-flex: 1; /* IE 10 */
-  flex: 1; /* Standard syntax */
+  /*flex: 1; !* Standard syntax *!*/
   /*height: 100%;*/
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
   /*border: 1px solid green !important;*/
-  flex: 0 0 80%;
+  /*flex: 0 0 80%;*/
 
 
 }
@@ -128,9 +128,9 @@ body {
   background: #dbdfe5;
   -webkit-flex: 1; /* Safari */
   -ms-flex: 1; /* IE 10 */
-  flex: 1; /* Standard syntax */
+  /*flex: 1; !* Standard syntax *!*/
   /*height: 100%;*/
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
   /*border: 1px solid green !important;*/
   flex: 0 0 20%;
 

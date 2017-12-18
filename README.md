@@ -38,3 +38,23 @@ https://wind-bow.glitch.me/twitch-api/streams/Fortnite
 
 
 https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-70x70.png
+
+
+https://static-cdn.jtvnw.net/jtv_user_pictures/freecodecamp-profile_image-d9514f2df0962329-300x300.png
+
+esl_sc2
+https://static-cdn.jtvnw.net/jtv_user_pictures/esl_sc2-profile_image-d6db9488cec97125-300x300.jpeg
+
+----
+about
+https://wind-bow.glitch.me/twitch-api/users/capcomfighters
+
+stream
+https://wind-bow.glitch.me/twitch-api/streams/capcomfighters
+
+channel
+https://wind-bow.glitch.me/twitch-api/channels/capcomfighters
+
+
+
+
