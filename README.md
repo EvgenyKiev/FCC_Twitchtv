@@ -50,7 +50,7 @@ about
 https://wind-bow.glitch.me/twitch-api/users/capcomfighters
 
 stream
-https://wind-bow.glitch.me/twitch-api/streams/capcomfighters
+https://wind-bow.glitch.me/twitch-api/streams/capcomfighters  (актив или неактивн канал ) data.stream ""== null
 
 channel
 https://wind-bow.glitch.me/twitch-api/channels/capcomfighters
@@ -58,3 +58,24 @@ https://wind-bow.glitch.me/twitch-api/channels/capcomfighters
 
 
 
+____
+
+1. проверить  статус
+
+в https://wind-bow.glitch.me/twitch-api/streams/capcomfighters
+https://wind-bow.glitch.me/twitch-api/streams/ESL_SC2
+
+
+ если статус НУЛЛ
+
+ 1.1 название статус  оффлайн , ссылка и лого из
+
+ https://wind-bow.glitch.me/twitch-api/users/capcomfighters
+
+
+
+иначе
+
+1.2  статус   , ссылка и лого из
+
+https://wind-bow.glitch.me/twitch-api/channels/capcomfighters

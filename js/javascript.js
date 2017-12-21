@@ -3,7 +3,8 @@ window.addEventListener("load", function() {
     // console.log (document.getElementById('insert'))
 
 
-            var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"]
+         //   var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"];
+    var streamChannel = ["freecodecamp","ESL_SC2", "OgamingSC2"];
 
          // var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/featured';
           //var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/esl_hearthstone'
@@ -14,7 +15,7 @@ window.addEventListener("load", function() {
 
       var  streamIDChannel=streamChannel[i];
 
-        trequest(streamIDChannel)
+        trequest(streamIDChannel);
 
     }
 
@@ -40,23 +41,20 @@ window.addEventListener("load", function() {
 
     function activeChannels() {
 
-        console.log ('all_active')
+        console.log ('online')
 
     }
 
     function noactiveChannels() {
 
-        console.log ('no_active')
+        console.log ('offline')
 
     }
 
 
-
-
-
     function trequest(streamIDChannel) {
         var request = new XMLHttpRequest();
-        var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/'+streamIDChannel
+        var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/'+streamIDChannel;
         request.open('GET', urlsrc, true);
         request.onload = function () {
             if (this.status >= 200 && this.status < 400) {
@@ -72,11 +70,9 @@ window.addEventListener("load", function() {
                 if (data.stream !== null) {
 
                     channelStatus = data.stream.channel.status;
-                   channelName = data.stream.channel.name;
+                    channelName = data.stream.channel.name;
                     channelLogo = data.stream.channel.logo;
-                     channelUrl = data.stream.channel.url;
-
-
+                    channelUrl = data.stream.channel.url;
 
                 }
 
@@ -90,8 +86,7 @@ window.addEventListener("load", function() {
 
                     function insertblock(){
                         var d1 = document.getElementById("insert");
-
-                        var innahtml= '<div class="row marketing"><div class="col-md-12" id="insertchannel"><div class="flex-container"><div class="column1"><img src='+channelLogo+'></div><div class="column bg-alt"><h5> <a href='+channelUrl+'>'+channelName+'</a></h5><p>'+channelStatus+'</p></div></div></div></div>'
+                        var innahtml= '<div class="row marketing"><div class="col-md-12" id="insertchannel"><div class="flex-container"><div class="column1"><img src='+channelLogo+'></div><div class="column bg-alt"><h5> <a href='+channelUrl+'>'+channelName+'</a></h5><p>'+channelStatus+'</p></div></div></div></div>';
 
                         // console.log(innahtml);
                         d1.insertAdjacentHTML('beforeend', innahtml)
@@ -138,4 +133,4 @@ window.addEventListener("load", function() {
 
 
 
-})
+});
