@@ -128,23 +128,19 @@ window.addEventListener("load", function() {
                     //console.log(channelStatus)
 
                     channelName = data.stream.channel.name;
-                    channelStatus = data.stream.channel.status
+                    channelStatus = data.stream.channel.status;
                     channelLogo = data.stream.channel.logo;
                     channelUrl = data.stream.channel.url;
 
                     insertblock();
 
-
                 }
-
-
             }
-        }
-
+        };
 
         request.onerror = function () {
 
-            //console.log('There was a connection error of some sort')
+            console.log('There was a connection error of some sort')
         };
 
         request.send();
@@ -180,7 +176,7 @@ window.addEventListener("load", function() {
                 insertblock();
 
             }
-        }
+        };
 
         request.onerror = function () {
             console.log('There was a connection error of some sort')
