@@ -1,109 +1,186 @@
 window.addEventListener("load", function() {
-    console.log("All resources finished loading!");
-    // console.log (document.getElementById('insert'))
+    //console.log("All resources finished loading!");
+    var activity=2;
 
+   var streamChannel = ["ESL_SC2", "OgamingSC2","freecodecamp"];
+    //var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"];
+    var channelName,
+        channelStatus,
+        channelLogo,
+        channelUrl;
 
-         //   var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"];
-    var streamChannel = ["freecodecamp","ESL_SC2", "OgamingSC2"];
+    var el = document.getElementsByClassName("row marketing");
 
-         // var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/featured';
-          //var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/esl_hearthstone'
+    allChannels(activity);
 
-
-    //
-    for (var i = 0; i < streamChannel.length; i++) {
-
-      var  streamIDChannel=streamChannel[i];
-
-        trequest(streamIDChannel);
-
-    }
-
-    // var el = document.getElementById("temp");
-    // el.addEventListener("click", modifyT, false);
-
+    ////filtration
 
     var all_el = document.getElementById("allChannels");
+
     var actve_el = document.getElementById("activeChannels");
+
     var noactve_el = document.getElementById("noactiveChannels");
 
 
 
     all_el.addEventListener("click",allChannels,false);
+
     actve_el.addEventListener("click",activeChannels,false);
+
     noactve_el.addEventListener("click",noactiveChannels,false);
 
 
-    function allChannels() {
-                console.log ('all_')
+    function allChannels()
+    {
+
+        var activity=2;
+
+         for (var i in streamChannel) {
+
+            var  streamIDChannel=streamChannel[i];
+
+            if (el) {
+
+                clearlist(el);
+            }
+
+            trequest(streamIDChannel,activity);
+
+
+        }
 
     }
 
     function activeChannels() {
 
-        console.log ('online')
+        var activity=1;
+
+        for (var i in streamChannel) {
+
+            var  streamIDChannel=streamChannel[i];
+
+
+            if (el) {
+
+                clearlist(el);
+
+            }
+
+            trequest(streamIDChannel,activity);
+
+
+        }
 
     }
 
     function noactiveChannels() {
 
-        console.log ('offline')
+        var activity=0;
+
+        for (var i in streamChannel) {
+
+            var  streamIDChannel=streamChannel[i];
+
+            if (el) {
+
+                clearlist(el);
+
+            }
+
+
+            trequest(streamIDChannel,activity);
+
+
+
+        }
 
     }
 
+    ///end filtration
 
-    function trequest(streamIDChannel) {
+
+    function trequest(streamIDChannel,activity) {
+
         var request = new XMLHttpRequest();
+
         var urlsrc = 'https://wind-bow.glitch.me/twitch-api/streams/'+streamIDChannel;
+
         request.open('GET', urlsrc, true);
+
         request.onload = function () {
+
+
+
             if (this.status >= 200 && this.status < 400) {
                 // Success!
                 var data = JSON.parse(this.response);
 
-                var channelName = streamIDChannel;
-                var channelLogo = 'offline';
-                var channelStatus ='offline';
-                var channelUrl = 'https://www.twitch.tv/'+streamIDChannel;
+                //console.log('activity :'+activity)
 
+                if (data.stream == null && activity !==1  ) {
 
-                if (data.stream !== null) {
+                    offtrequest(streamIDChannel)
+                }
 
-                    channelStatus = data.stream.channel.status;
+                else if (data.stream !== null && activity !==0 ) {
+
+                    //channelStatus = data.stream.channel.status;
+                    //console.log(channelStatus)
+
                     channelName = data.stream.channel.name;
+                    channelStatus = data.stream.channel.status
                     channelLogo = data.stream.channel.logo;
                     channelUrl = data.stream.channel.url;
 
-                }
-
-                    //console.log(all)
-                    console.log(channelName);
-                    console.log(channelLogo);
-                    console.log(channelStatus);
-                    console.log(channelUrl);
-
                     insertblock();
 
-                    function insertblock(){
-                        var d1 = document.getElementById("insert");
-                        var innahtml= '<div class="row marketing"><div class="col-md-12" id="insertchannel"><div class="flex-container"><div class="column1"><img src='+channelLogo+'></div><div class="column bg-alt"><h5> <a href='+channelUrl+'>'+channelName+'</a></h5><p>'+channelStatus+'</p></div></div></div></div>';
 
-                        // console.log(innahtml);
-                        d1.insertAdjacentHTML('beforeend', innahtml)
-                    }
+                }
 
-
-                // else
-                //     {console.log(streamIDChannel+' channel is offline' +' go to url '+'https://twitch.tv/'+streamIDChannel)};
-
-            //end If  this.status >= 200 && this.status < 400
-            }
-
-            else {
-                console.log('We reached our target server, but it returned an error');
 
             }
+        }
+
+
+        request.onerror = function () {
+
+            //console.log('There was a connection error of some sort')
         };
+
+        request.send();
+
+
+   //end xhr
+    }
+
+
+        //  if xhr channel offline
+
+    function offtrequest(streamIDChannel) {
+
+        var request = new XMLHttpRequest();
+
+        var urlsrc = 'https://wind-bow.glitch.me/twitch-api/users/'+streamIDChannel;
+
+        request.open('GET', urlsrc, true);
+
+        request.onload = function () {
+
+            if (this.status >= 200 && this.status < 400) {
+                // Success!
+                var data = JSON.parse(this.response);
+
+               // console.log(streamIDChannel+' is offline ')
+
+                channelStatus = 'offline';
+                channelLogo = data.logo;
+                channelUrl = 'https://www.twitch.tv/'+streamIDChannel;
+                channelName = data.display_name;
+
+                insertblock();
+
+            }
+        }
 
         request.onerror = function () {
             console.log('There was a connection error of some sort')
@@ -111,26 +188,41 @@ window.addEventListener("load", function() {
 
         request.send();
 
+        //end xhr
     }
 
 
+    ///
 
-        //
-        // for (var i = 0; i < jpars[1].length; i++) {
-        //
-        //     Array.prototype.forEach.call(paras, function (para) {
-        //
-        //         if (para.getAttribute("class") === "row")
-        //
-        //             para.parentNode.removeChild(para);
-        //
-        //         console.log('if (paras) delete')
-        //
-        //     });
-        // }
+    function insertblock(){
 
-        //
+        var d1 = document.getElementById("insert");
+
+        var innahtml= '<div class="row marketing"><div class="col-md-12" id="insertchannel"><div class="flex-container"><div class="column1"><img src='+channelLogo+'></div><div class="column bg-alt"><h5> <a href='+channelUrl+'>'+channelName+'</a></h5><p>'+channelStatus+'</p></div></div></div></div>';
+
+        // console.log(innahtml);
+        d1.insertAdjacentHTML('beforeend', innahtml)
+    }
 
 
+    //del
+    function  clearlist(el) {
 
+        //console.log('if row marketing is true - delete')
+
+            Array.prototype.forEach.call(el, function (para) {
+
+                if (para.getAttribute("class") === "row marketing")
+
+                    para.parentNode.removeChild(para);
+
+            });
+
+
+    }
+
+    // end  f. del
+
+
+    //close  window.addEventListener
 });
