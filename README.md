@@ -79,3 +79,68 @@ https://wind-bow.glitch.me/twitch-api/streams/ESL_SC2
 1.2  статус   , ссылка и лого из
 
 https://wind-bow.glitch.me/twitch-api/channels/capcomfighters
+___
+
+Условия
+1 Все по умолчанию.  удалить все Все по умолчанию
+2 Онлайн - удалить все, загрузить онлайн
+3 Офлайн  - удалить все загрузить фолай
+
+
++++
+
+
+
+                     channelStatus = data.stream.channel.status;
+                     channelName = data.stream.channel.name
+                     channelLogo = data.stream.channel.logo;
+                     channelUrl = data.stream.channel.url;
+
+
+                    dataChannels['channelName']=channelName;
+                    dataChannels['channelStatus']=channelStatus;
+                    dataChannels.channelLogo=channelLogo;
+                    dataChannels.channelUrl=channelUrl;
+
+                    dataChannels.push(channelName )
+
+
+
+
+                    console.log ('I '+i+' in massive channelName: '+
+                     dataChannels.channelName+ '\n'+
+                      dataChannels['channelName']['channelStatus']+ '\n'+
+                     dataChannels.channelLogo+ '\n'+
+                     dataChannels.channelUrl
+
+
+                    )
+                   // console.log ('in massive: '+dataChannels.channelName['channelStatus'])
+
+                    //
+                    var counter = 0;
+
+                    // for (var key in dataChannels) {
+                    //     counter++;
+                    // }
+                    for (var key in dataChannels) {
+                        console.log( 'test_property: '+ dataChannels[key] );
+
+
+                    }
+
+
+                    //console.log( "Всего свойств: " + counter );
+
+                    //
+                    // dataChannels.push(channelName ,channelStatus,channelLogo,channelUrl );
+                    //
+                    // console.log ('massive '+dataChannels)
+
+
+
+                    //
+                    //  console.log(channelName);
+                    //  console.log(channelLogo);
+                    //console.log(channelStatus);
+                    //  console.log(channelUrl);
