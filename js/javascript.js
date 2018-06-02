@@ -2,8 +2,8 @@ window.addEventListener("load", function() {
     //console.log("All resources finished loading!");
     var activity=2;
 
-   var streamChannel = ["ESL_SC2", "OgamingSC2","freecodecamp"];
-    //var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"];
+   //var streamChannel = ["ESL_SC2", "OgamingSC2","freecodecamp"];
+    var streamChannel = ["freecodecamp","capcomfighters","ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx",  "noobs2ninjas","Hearthstone","J4CKIECHAN",	"TheJWittz"];
     var channelName,
         channelStatus,
         channelLogo,
